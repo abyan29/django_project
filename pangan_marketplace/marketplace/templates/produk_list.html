@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+<div style="text-align:right; padding:10px;">
+        <a href="{% url 'cart_detail' %}">
+            🛒 Cart ({{ cart_item_count }})
+        </a>
+</div>
+<h2 class="text-success mb-4">Produk Pilihan Hari Ini</h2>
+
+<a href="{% url 'tambah_produk' %}" class="btn btn-success mb-4">+ Tambah Produk</a>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+  {% for item in produk %}
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+
+      {% if item.gambar %}
+        <img src="{{ item.gambar.url }}" class="card-img-top" alt="{{ item.nama }}" style="height: 200px; object-fit: cover;">
+      {% else %}
+        <div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height: 200px;">
+          <span class="text-muted">Tidak ada gambar</span>
+        </div>
+      {% endif %}
+
+      <div class="card-body">
+        <h5 class="card-title">{{ item.nama }}</h5>
+        <p class="card-text">Rp{{ item.harga|floatformat:0|intcomma }}<br>
+          <small class="text-muted">Stok: {{ item.stock }}</small></p>
+        <p class="card-text text-muted">{{ item.deskripsi }}</p>
+        <p class="card-text text-muted">{{ item.waktu_ditambahkan }}</p>
+      </div>
+
+      <div class="card-footer border-0 bg-white d-flex flex-column gap-2">
+        <a href="{% url 'add_to_cart' item.pk %}" class="btn btn-success w-100">🛒 Tambah ke Keranjang</a>
+        <div class="d-flex justify-content-between">
+          {% if request.user.role == 'admin' %}
+            <a href="{% url 'edit_produk' item.pk %}" class="btn btn-sm btn-outline-primary w-50 me-1">Edit</a>
+            <a href="{% url 'hapus_produk' item.pk %}" class="btn btn-sm btn-outline-danger w-50 ms-1">Hapus</a>
+          {%  endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% empty %}
+  <div class="col">
+    <p class="text-muted">Tidak ada produk yang tersedia.</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

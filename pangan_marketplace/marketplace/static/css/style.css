@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+nav.navbar {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+h2 {
+    color: #007bff ;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100% ;
+}
+
+th, td {
+    padding: 10px ;
+    border: 1px solid #ccc ;
+}
+
+.navbar-brand{
+    color: white ;
+}
+
+.container1{
+    background-color: rgb(0, 200, 255) ;
+    padding: 20px;
+    width: 100%;
+}
