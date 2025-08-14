@@ -1,0 +1,15 @@
+# Abaikan folder Python cache
+__pycache__/
+*.pyc
+
+# Abaikan file environment
+.env
+
+# Abaikan file log
+*.log
+
+# Abaikan folder build
+build/
+dist/
+
+settings.py
