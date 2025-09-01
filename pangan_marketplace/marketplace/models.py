@@ -66,5 +66,4 @@ class CartItem(models.Model):
         return f"{self.quantity} x {self.product.nama}"
     
     class Meta:
-        unique_together = ['cart', 'product'] 
-    
+        unique_together = ['cart', 'product']
