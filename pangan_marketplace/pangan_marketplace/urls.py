@@ -19,6 +19,11 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
+from django.conf.urls import handler403
+from django.shortcuts import render
+
+def custom_permission_denied(request,exception=None):
+    return render(request, "error/403.html",status=403)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +35,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler403 = custom_permission_denied

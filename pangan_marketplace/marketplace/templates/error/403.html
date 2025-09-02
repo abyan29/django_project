@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error</title>
+    <link rel="stylesheet" href="{% static 'css/error.css'  %}">
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-header">
+            <span class="red"></span>
+            <span class="yellow"></span>
+            <span class="green"></span>
+        </div>
+    <div class="error-content">
+      <h1>403</h1>
+      <h2>Forbidden</h2>
+      <p>You are not authorized to view this page</p>
+    </div>
+  </div>
+    <a href="{% url 'produk_list' %}" class="button">🔙 kembali</a>
+</body>
+</html>
