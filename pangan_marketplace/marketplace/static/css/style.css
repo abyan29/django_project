@@ -37,4 +37,12 @@ th, td {
     background-color: rgb(0, 200, 255) ;
     padding: 20px;
     width: 100%;
+    display: flex;
+}
+
+.cart{
+    background: grey;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
 }

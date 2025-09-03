@@ -4,11 +4,6 @@
 
 
 {% block content %}
-<div style="text-align:right; padding:10px;">
-        <a href="{% url 'cart_detail' %}">
-            🛒 Cart ({{ cart_item_count }})
-        </a>
-</div>
 <h2 class="text-success mb-4">Produk Pilihan Hari Ini</h2>
 
 <a href="{% url 'tambah_produk' %}" class="btn btn-success mb-4">+ Tambah Produk</a>
