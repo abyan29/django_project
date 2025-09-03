@@ -41,8 +41,15 @@ th, td {
 }
 
 .cart{
-    background: grey;
     color: white;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
+    transition: background 0.5s, color 0.5s;
+    border-radius: 25px;
+    margin-right: 20px;
+}
+
+.cart:hover{
+    background: blue;
+    color: white;
 }
